@@ -5,12 +5,12 @@
 .content {
     padding: 1rem;
 }
-
+/*
 .content h1 {
     margin: 0;
 }
-
-.pokemons {
+*/
+ol.pokemons {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -18,11 +18,17 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.pokemons li{
+ol.pokemons li{
     margin: .5rem;
     padding: 2rem 1rem;
     background-color: #14A06F;
     border-radius: 1rem;
     color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+ol.pokemons li img {
+    max-width: 100px;
     height: 100px;
 }
