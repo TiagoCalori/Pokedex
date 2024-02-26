@@ -4,8 +4,18 @@
 }
 
 .content {
-    padding: 1rem;
+   /* padding: 1rem; */
+
 }
+
+@media screen and (max-width: 992px) {
+    .content { max-width: 992px;
+        margin: 0 auto;
+    }
+        
+    
+ }
+
 /*
 .content h1 {
     margin: 0;
@@ -55,14 +65,14 @@
     OPACITY: .3;
 }
 
-.pokemon .detail{
+.pokemon .detail {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-.pokemon .name{
+.pokemon .name {
     margin-bottom: 0;
     color: #fff;
 }
