@@ -1,25 +1,22 @@
 
-
-
-
+function convertPokemonTypesToLi(pokemonTypes){
+    return pokemonTypes.map((typeslot) => ` <li class="type">${typeslot.type.name} </li>`)
+}
 
 function convertPokemonToLi(pokemon) {
     return `
     <li class="pokemon">
-    <span class="number">#001</span>
+    <span class="number">${pokemon.order}</span>
     <span class="name">${pokemon.name}</span>
 
     <div class="detail">
         <ol class="types">   
-            <li class="type">grass</li>
-            <li class="type">poison</li>
+        ${convertPokemonToLi(pokemon.types).join('')}
         </ol>
 
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
-        alt="${pokemon.name}">
-    
-    </div>
-    
+        <img src=${pokemon.sprites.other.dream_world.front_degault}"
+        alt="${pokemon.name}">    
+    </div>   
 </li>
     `
 }
@@ -27,26 +24,7 @@ function convertPokemonToLi(pokemon) {
 const pokemonList = document.getElementById('pokemonList')
 
 pokeApi.getPokemons().then((pokemons = []) => {
-    pokemonList.innerHTML += pokemons.map(convertPokemonToLi).join('')
-   
-
+    const newHtml = pokemons.map(convertPokemonToLi).join('')
+    pokemonList.innerHTML = newHtml 
 })
 
-
-
-/*
-    .then(function (response) {
-        return response.json()
-    })
-    .then(function (jsonBody) {
-        console.log(jsonBody)
-    })
-    // caso fracase a requisição .catch
-    .catch(function (error) {
-        console.error(error)
-    })
-    // independente o resultado da requesico se for com sucesso ou fracasso
-    .finally(function () {
-        console.log('Requisição concluída!')
-    })
-    */
